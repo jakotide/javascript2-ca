@@ -1,0 +1,69 @@
+@import "variables";
+@import "mixins";
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: $white;
+}
+
+.logo {
+  font-weight: bolder;
+  color: $white;
+}
+
+.login-btn {
+  background-color: $dark-green;
+  color: $white;
+
+  &:hover {
+    background-color: $light-green;
+  }
+}
+
+.forgot {
+  color: white;
+}
+
+// PROFILE PAGE
+
+.navbar {
+  .logo-nav {
+    color: $white;
+    font-weight: 700;
+  }
+
+  .nav-link {
+    color: $white;
+  }
+}
+
+.profile-box {
+  @include boxShadow();
+
+  .profile-pic {
+    height: 300px;
+  }
+
+  .username {
+    font-size: 2rem;
+  }
+}
+
+.card-profile {
+  width: 300px;
+  @include boxShadow();
+}
+
+// FEED PAGE
+
+.card-feed {
+  width: 240px;
+  @include boxShadow();
+}
+
+.create-form {
+  color: $white;
+  @include boxShadow();
+  height: 550px;
+}

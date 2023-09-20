@@ -1,0 +1,12 @@
+@mixin flexCenter($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+@mixin boxShadow() {
+  border-radius: 17px;
+  background: #ffffff;
+  box-shadow: 16px 16px 32px #e3e3e3, -16px -16px 32px #ffffff;
+}
