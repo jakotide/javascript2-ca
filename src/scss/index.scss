@@ -13,12 +13,14 @@ body {
 }
 
 .login-btn {
-  background-color: $dark-green;
-  color: $white;
-
-  &:hover {
-    background-color: $light-green;
+  color: white;
+  :hover {
+    color: red;
   }
+}
+
+.new-user {
+  color: white;
 }
 
 .forgot {
