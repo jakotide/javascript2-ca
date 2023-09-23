@@ -21,11 +21,13 @@ body {
 
 .new-user {
   color: white;
+  cursor: pointer;
 }
 
-.forgot {
-  color: white;
-}
+// .reg-form {
+//   display: none !important;
+// }
+
 
 .regi-error {
   color: rgb(233, 111, 111);

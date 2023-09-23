@@ -143,8 +143,18 @@
 // });
 const API_BASE_URL = "https://api.noroff.dev";
 
+
+// document.addEventListener("DOMContentLoaded", function () {
+//   const newUser = document.querySelector(".new-user");
+//   const regForm = document.querySelector(".reg-form");
+
+//   newUser.addEventListener("click", () => {
+//     regForm.style.display = "block";
+//   });
+// });
+
+
 function validateName(name) {
-  // Use a regular expression to check if the name contains only alphanumeric characters and underscores
   return /^[a-zA-Z0-9_]+$/.test(name);
 }
 
@@ -195,7 +205,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const email = document.querySelector("#reg-email").value;
     const password = document.querySelector("#reg-password").value;
 
-    // Validate the input fields and display error messages
     const isNameValid = validateName(name);
     const isEmailValid = validateEmail(email);
     const isPasswordValid = validatePassword(password);
