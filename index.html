@@ -15,6 +15,7 @@
     <script src="/js/components/register.js" defer></script>
     <!-- SASS-compiled CSS -->
     <link rel="stylesheet" href="dist/css/index.css" />
+    <link rel="stylesheet" href="src/scss/index.scss">
     <title>Log in</title>
   </head>
   <body>
@@ -47,21 +48,37 @@
         </div>
       
         <div class="text-center">
-          <button type="submit" class="btn login-btn bg-secondary">
+          <button type="submit" class="btn login-btn bg-secondary" id="login-form">
             Login
           </button>
         </div>
       </form>
       <div class="mt-5 new-user">New user? Register here</div>
-      <form action="" class="d-flex flex-column" id="registration-form">
+      <!-- <form action="" class="d-flex flex-column" id="registration-form" method="post">
         <label for="name" class="form-label">Username</label>
         <input type="text" name="name" id="reg-name" class="form-control mb-3" required>
+        <div class="regi-error">Username can not contain symbols apart from underscore</div>
         <label for="email">Email</label>
         <input type="text" name="email" id="reg-email" class="form-control mb-3" required>
+        <div class="regi-error">Email must be a valid stud.noroff.no or noroff.no email address</div>
         <label for="password">Password</label>
-        <input type="password" id="reg-password" name="password" class="form-control mb-3" required>
+        <input type="password" id="reg-password" name="password" class="form-control mb-3" required minlength="8">
+        <div class="regi-error">Must be 8 characters long</div>
+        <button type="submit" class="btn login-btn bg-secondary">Sign Up</button>
+      </form> -->
+      <form action="" class="d-flex flex-column" id="registration-form" method="post">
+        <label for="name" class="form-label">Username</label>
+        <input type="text" name="name" id="reg-name" class="form-control mb-3" required>
+        <div class="regi-error" id="name-error">Username can not contain symbols apart from underscore</div>
+        <label for="email">Email</label>
+        <input type="text" name="email" id="reg-email" class="form-control mb-3" required>
+        <div class="regi-error" id="email-error">Email must be a valid stud.noroff.no or noroff.no email address</div>
+        <label for="password">Password</label>
+        <input type="password" id="reg-password" name="password" class="form-control mb-3" required minlength="8">
+        <div class="regi-error" id="password-error">Must be 8 characters long</div>
         <button type="submit" class="btn login-btn bg-secondary">Sign Up</button>
       </form>
+      
     </div>
   </body>
 </html>
