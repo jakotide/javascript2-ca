@@ -141,18 +141,11 @@
 //     }
 //   });
 // });
+
+
+
 const API_BASE_URL = "https://api.noroff.dev";
-
-
-// document.addEventListener("DOMContentLoaded", function () {
-//   const newUser = document.querySelector(".new-user");
-//   const regForm = document.querySelector(".reg-form");
-
-//   newUser.addEventListener("click", () => {
-//     regForm.style.display = "block";
-//   });
-// });
-
+const regSuccess = document.querySelector(".reg-success");
 
 function validateName(name) {
   return /^[a-zA-Z0-9_]+$/.test(name);
@@ -190,6 +183,19 @@ async function registerUser(url, userData) {
     const response = await fetch(url, postData);
     const json = await response.json();
     console.log(json);
+
+        // Check for a successful registration status (e.g., 200 or 201).
+        if (response.status === 200 || response.status === 201 || json.status === "success") {
+          // Clear input fields after successful registration.
+          document.querySelector("#reg-name").value = "";
+          document.querySelector("#reg-email").value = "";
+          document.querySelector("#reg-password").value = "";
+          
+          regSuccess.style.display = "block";
+    
+          // Optionally, you can display a success message here if needed.
+          console.log("Registration successful!");
+        }
   } catch (error) {
     console.log(error.message);
   }

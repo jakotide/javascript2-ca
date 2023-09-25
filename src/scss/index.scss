@@ -25,9 +25,17 @@ body {
 }
 
 // .reg-form {
-//   display: none !important;
+//   // display: none;
+//   position: absolute;
+//   left: -1000px;
 // }
 
+.reg-success {
+  display: none;
+  color: white;
+  padding-top: 10px;
+  font-size: 1.5rem;
+}
 
 .regi-error {
   color: rgb(233, 111, 111);
@@ -63,6 +71,11 @@ body {
   width: 300px;
   @include boxShadow();
 }
+
+// .display-n {
+//   display: none;
+  
+// }
 
 // FEED PAGE
 
