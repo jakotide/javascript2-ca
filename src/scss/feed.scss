@@ -1,0 +1,9 @@
+.card-feed {
+    @include boxShadow();
+  }
+  
+  .create-form {
+    color: $white;
+    @include boxShadow();
+    height: 550px;
+  }
