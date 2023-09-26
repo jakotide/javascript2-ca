@@ -1,20 +1,23 @@
+import { validateName, validateEmail, validatePassword } from "../utilities/validate.js";
+
+
 const API_BASE_URL = "https://api.noroff.dev";
 const regSuccess = document.querySelector(".reg-success");
 
-function validateName(name) {
-  return /^[a-zA-Z0-9_]+$/.test(name);
-}
+// function validateName(name) {
+//   return /^[a-zA-Z0-9_]+$/.test(name);
+// }
 
-function validateEmail(email) {
-  const noroffEmail = /@noroff\.no$/;
-  const studEmail = /@stud\.noroff\.no$/;
+// function validateEmail(email) {
+//   const noroffEmail = /@noroff\.no$/;
+//   const studEmail = /@stud\.noroff\.no$/;
 
-  return noroffEmail.test(email) || studEmail.test(email);
-}
+//   return noroffEmail.test(email) || studEmail.test(email);
+// }
 
-function validatePassword(password) {
-  return password.length >= 8;
-}
+// function validatePassword(password) {
+//   return password.length >= 8;
+// }
 
 function displayError(fieldId, errorMessage) {
   const errorElement = document.getElementById(`${fieldId}-error`);

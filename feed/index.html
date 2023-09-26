@@ -14,10 +14,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- SASS-compiled CSS -->
     <link rel="stylesheet" href="/dist/css/index.css" />
-    <link rel="stylesheet" href="/src/scss/feed.scss">
     <!-- JS -->
+    <script src="/js/utilities/consts.js" type="module"></script>
     <script src="/js/utilities/fetchToken.js" type="module"></script>
     <script src="/js/components/feedPosts.js" type="module"></script>
+    <script src="/js/components/search.js" type="module"></script>
     <title>Feed</title>
   </head>
   <body>
@@ -52,16 +53,18 @@
       </nav>
       <div class="container">
         <h1 class="mt-5 mb-4">THE FEED</h1>
+        <!-- Search / Filter -->
         <div class="row">
           <div class="col-md-6">
             <div class="input-group">
               <input
+                id="searchInput"
                 class="form-control mb-3"
                 type="search"
                 placeholder="Search"
               />
               <span class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button">
+                <button class="btn btn-outline-secondary" id="searchButton" type="button">
                   <i class="fa fa-search"></i>
                 </button>
               </span>
@@ -77,14 +80,14 @@
           </div>
         </div>
     </header>
-    <main>
-      <div class="col-12 d-flex flex-row mx-5">
-        <!-- POSTS -->
-        <div class="feed-posts col-8">
-          
+    <main class="d-flex justify-content-center">
+      <div class="container">
+        <div class="row">
+          <!-- POSTS -->
+        <div class="feed-posts col-12 col-md-8">
         </div>
         <!-- CREATE NEW POST -->
-        <form class="col-12 col-md-3 bg-primary create-form border-0">
+        <form class="col-12 col-md-4 bg-primary create-form border-0 p-2">
           <div class="mb-3">
               <h3 class="pt-3">Create new post:</h3>
           </div>
@@ -105,13 +108,12 @@
               <button type="submit" class="btn btn-dark">Create</button>
           </div>
       </form>
-      
+        </div>
     </div>
     </main>
-
     <!-- FOOTER -->
     <footer
-      class="bg-dark d-flex justify-content-center align-items-center mt-5 "
+      class="bg-primary py-3 d-flex justify-content-center align-items-center mt-4"
       
     >
       <div class="text center p-2 text-light">@SKJERA 2023</div>

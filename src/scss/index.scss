@@ -72,11 +72,9 @@ body {
   @include boxShadow();
 }
 
-
 // FEED PAGE
 
 .card-feed {
-  // width: 240px;
   @include boxShadow();
 }
 
@@ -84,4 +82,15 @@ body {
   color: $white;
   @include boxShadow();
   height: 550px;
+  background-color: red;
+}
+
+
+.feed-like-btn {
+  height: 24px;
+  margin-top: 10px;
+}
+
+.feed-date {
+  margin: 0;
 }

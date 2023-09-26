@@ -1,16 +1,21 @@
 import { fetchToken } from "../utilities/fetchToken.js";
 import { postUrl } from "../utilities/consts.js";
 
-async function displayFeedPosts () {
-    try {
-        const json = await fetchToken(postUrl);
-        console.log(json);
-        const feedPostDiv = document.querySelector(".feed-posts");
+// Function to filter posts based on the search query
+function filterPosts(posts, query) {
+  return posts.filter((post) => {
+    const searchString = post.title + post.body;
+    return searchString.toLowerCase().includes(query.toLowerCase());
+  });
+}
 
-        for (let i = 0; i < 5 && i < json.length; i++) {
-            const post = json[i];
+// Function to display filtered posts
+function displayFilteredPosts(posts) {
+  const feedPostDiv = document.querySelector(".feed-posts");
+  feedPostDiv.innerHTML = ''; // Clear existing posts
 
-            const feedPost = document.createElement("div");
+  for (const post of posts) {
+    const feedPost = document.createElement("div");
             feedPost.classList.add("card", "bg-body-secondary", "mx-4", "my-3", "d-flex", "justify-content-center", "flex-column", "p-3", "border-0");
             
             const feedTitle = document.createElement("h2");
@@ -37,12 +42,31 @@ async function displayFeedPosts () {
             feedReactionRow.append(feedLikeBtn, feedDate);
 
             feedPostDiv.append(feedPost)
-
-        }
-    } catch(error) {
-        console.log(error)
-    }
-   
+  }
 }
 
-displayFeedPosts();
+// Function to handle search
+async function handleSearch(event) {
+  event.preventDefault();
+  const query = document.querySelector('#searchInput').value.trim(); // Get the search query
+
+  try {
+    const json = await fetchToken(postUrl);
+    const filteredPosts = filterPosts(json, query);
+    displayFilteredPosts(filteredPosts);
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
+// Event listener for the search button
+const searchButton = document.querySelector("#searchButton");
+searchButton.addEventListener("click", handleSearch);
+
+// Event listener for the Enter key in the search input
+const searchInput = document.querySelector("#searchInput");
+searchInput.addEventListener("keyup", (event) => {
+  if (event.key === "Enter") {
+    handleSearch(event);
+  }
+});
