@@ -19,6 +19,7 @@
     <script src="/js/utilities/fetchToken.js" type="module"></script>
     <script src="/js/components/feedPosts.js" type="module"></script>
     <script src="/js/components/search.js" type="module"></script>
+    <script src="/js/components/filter.js" type="module"></script>
     <title>Feed</title>
   </head>
   <body>
@@ -71,11 +72,11 @@
             </div>
           </div>
           <div class="col-md-6">
-            <select class="form-select" aria-label="Sort by" name="" id="">
+            <select class="form-select" aria-label="Sort by" name="" id="feed-filter">
               <option selected>Sort by</option>
               <option value="latest">Latest</option>
               <option value="popular">Popular</option>
-              <option value="upcoming">Upcoming</option>
+              <option value="upcoming">Oldest</option>
             </select>
           </div>
         </div>

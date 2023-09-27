@@ -16,32 +16,46 @@ function displayFilteredPosts(posts) {
 
   for (const post of posts) {
     const feedPost = document.createElement("div");
-            feedPost.classList.add("card", "bg-body-secondary", "mx-4", "my-3", "d-flex", "justify-content-center", "flex-column", "p-3", "border-0");
-            
-            const feedTitle = document.createElement("h2");
-            feedTitle.classList.add("mb-3");
-            feedTitle.textContent  = post.title;
+    feedPost.classList.add("card", "bg-body-secondary", "mx-4", "my-3", "d-flex", "justify-content-center", "flex-column", "p-3", "border-0");
 
-            const feedContent = document.createElement("p");
-            // feedContent.classList.add("");
-            feedContent.textContent = post.body;
+    const feedTitle = document.createElement("h2");
+    feedTitle.classList.add("mb-3");
+    feedTitle.textContent = post.title;
 
-            const feedReactionRow = document.createElement("div");
-            feedReactionRow.classList.add("d-flex", "flex-row", "justify-content-between", "align-content-center", "mt-4");
+    const feedMedia = document.createElement("img");
+    feedMedia.classList.add("img-fluid");
+    feedMedia.src = post.media;
 
-            const feedLikeBtn = document.createElement("i");
-            feedLikeBtn.classList.add("fa-solid", "fa-thumbs-up", "fa-xl", "feed-like-btn");
+    const feedContent = document.createElement("p");
+    feedContent.textContent = post.body;
 
-            const feedDate = document.createElement("p");
-            feedDate.classList.add("feed-date");
-            feedDate.textContent = post.created;
+    const feedReactionRow = document.createElement("div");
+    feedReactionRow.classList.add("d-flex", "flex-row", "justify-content-between", "align-content-center", "mt-4");
 
-            feedPost.append(feedTitle);           
-            feedPost.append(feedContent);
-            feedPost.append(feedReactionRow);
-            feedReactionRow.append(feedLikeBtn, feedDate);
+    const feedLikeBtn = document.createElement("i");
+    feedLikeBtn.classList.add("fa-solid", "fa-thumbs-up", "fa-xl", "feed-like-btn");
 
-            feedPostDiv.append(feedPost)
+    const feedDate = document.createElement("p");
+    feedDate.classList.add("feed-date");
+
+    // Convert and format the date
+    const createdDate = new Date(post.created);
+    const formattedDate = `${createdDate.getDate()}-${(createdDate.getMonth() + 1)
+        .toString()
+        .padStart(2, "0")}-${createdDate
+        .getFullYear()
+        .toString()
+        .slice(-2)}, ${createdDate.getHours()}:${createdDate.getMinutes()}`;
+
+    feedDate.textContent = formattedDate;
+
+    feedPost.append(feedTitle);
+    feedPost.append(feedContent);
+    feedPost.append(feedReactionRow);
+    feedPost.append(feedMedia);
+    feedReactionRow.append(feedLikeBtn, feedDate);
+
+    feedPostDiv.append(feedPost);
   }
 }
 

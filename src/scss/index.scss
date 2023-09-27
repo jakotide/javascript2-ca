@@ -94,3 +94,8 @@ body {
 .feed-date {
   margin: 0;
 }
+
+.feed-media {
+  max-height: 500px;
+  object-fit: cover;
+}

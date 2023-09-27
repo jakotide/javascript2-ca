@@ -1,24 +1,27 @@
 import { fetchToken } from "../utilities/fetchToken.js";
 import { postUrl } from "../utilities/consts.js";
 
-async function displayFeedPosts () {
+async function displayFeedPosts() {
     try {
         const json = await fetchToken(postUrl);
         console.log(json);
         const feedPostDiv = document.querySelector(".feed-posts");
 
-        for (let i = 0; i < 5 && i < json.length; i++) {
+        for (let i = 0; i < 10 && i < json.length; i++) {
             const post = json[i];
 
             const feedPost = document.createElement("div");
             feedPost.classList.add("card", "bg-body-secondary", "mx-4", "my-3", "d-flex", "justify-content-center", "flex-column", "p-3", "border-0");
-            
+
             const feedTitle = document.createElement("h2");
             feedTitle.classList.add("mb-3");
-            feedTitle.textContent  = post.title;
+            feedTitle.textContent = post.title;
+
+            const feedMedia = document.createElement("img");
+            feedMedia.classList.add("img-fluid", "feed-media");
+            feedMedia.src = post.media;
 
             const feedContent = document.createElement("p");
-            // feedContent.classList.add("");
             feedContent.textContent = post.body;
 
             const feedReactionRow = document.createElement("div");
@@ -29,20 +32,30 @@ async function displayFeedPosts () {
 
             const feedDate = document.createElement("p");
             feedDate.classList.add("feed-date");
-            feedDate.textContent = post.created;
 
-            feedPost.append(feedTitle);           
+            // Convert and format the date
+            const createdDate = new Date(post.created);
+            const formattedDate = `${createdDate.getDate()}-${(createdDate.getMonth() + 1)
+                .toString()
+                .padStart(2, "0")}-${createdDate
+                .getFullYear()
+                .toString()
+                .slice(-2)}, ${createdDate.getHours()}:${createdDate.getMinutes()}`;
+
+            feedDate.textContent = formattedDate;
+
+            feedPost.append(feedTitle);
+            feedPost.append(feedMedia);
             feedPost.append(feedContent);
             feedPost.append(feedReactionRow);
+           
             feedReactionRow.append(feedLikeBtn, feedDate);
 
-            feedPostDiv.append(feedPost)
-
+            feedPostDiv.append(feedPost);
         }
-    } catch(error) {
-        console.log(error)
+    } catch (error) {
+        console.log(error);
     }
-   
 }
 
 displayFeedPosts();
