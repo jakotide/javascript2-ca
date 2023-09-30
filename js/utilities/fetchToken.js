@@ -9,7 +9,9 @@ export async function fetchToken(url) {
             },
         };
         const response = await fetch(url, fetchOption);
+        console.log(token)
         const json = await response.json();
+       
         return json;
     } catch (error) {
         console.log(error);

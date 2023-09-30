@@ -23,7 +23,7 @@ function displayFilteredPosts(posts) {
     feedTitle.textContent = post.title;
 
     const feedMedia = document.createElement("img");
-    feedMedia.classList.add("img-fluid");
+    feedMedia.classList.add("img-fluid", "feed-media");
     feedMedia.src = post.media;
 
     const feedContent = document.createElement("p");

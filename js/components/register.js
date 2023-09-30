@@ -96,6 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const registerURL = `${API_BASE_URL}/api/v1/social/auth/register`;
 
       try {
+        console.log(userToRegister)
         await registerUser(registerURL, userToRegister);
       } catch (error) {
         console.log(error.message);
