@@ -29,6 +29,7 @@ function renderFeedPosts(json) {
 function createFeedPostElement(post) {
     const feedPost = document.createElement("div");
     feedPost.classList.add("card", "bg-body-secondary", "mx-4", "my-3", "d-flex", "justify-content-center", "flex-column", "p-3", "border-0");
+    feedPost.id = post.id;
 
     const feedTitle = document.createElement("h2");
     feedTitle.classList.add("mb-3");
@@ -47,8 +48,10 @@ function createFeedPostElement(post) {
     const feedLikeBtn = document.createElement("i");
     feedLikeBtn.classList.add("fa-solid", "fa-thumbs-up", "fa-xl", "feed-like-btn");
 
-    const viewBtn = document.createElement("button");
+    const viewBtn = document.createElement("a");
     viewBtn.classList.add("view-btn")
+    viewBtn.textContent = "View Post";
+    viewBtn.href = `post.html?id=${post.id}`;
 
     const feedDate = document.createElement("p");
     feedDate.classList.add("feed-date");
