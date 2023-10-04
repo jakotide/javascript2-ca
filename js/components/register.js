@@ -29,6 +29,9 @@ async function registerUser(url, userData) {
       document.querySelector("#reg-name").value = "";
       document.querySelector("#reg-email").value = "";
       document.querySelector("#reg-password").value = "";
+      document.querySelector("#reg-avatar").value = ""; 
+      document.querySelector("#reg-banner").value = "";
+
 
       regSuccess.style.display = "block";
       console.log("Registration successful!");
@@ -54,9 +57,15 @@ async function loginUser(url, userData) {
     if (response.status >= 200 && response.status <= 299) {
       console.log("Login successful!");
       const accessToken = json.accessToken;
+      const userName = json.name;
+      const userAvatar = json.avatar;
+      const userBanner = json.banner;     
 
       // Store the access token in localStorage for future use
       localStorage.setItem("accessToken", accessToken);
+      localStorage.setItem("Username", userName);
+      localStorage.setItem("User avatar", userAvatar);
+      localStorage.setItem("User banner", userBanner);
 
       // Redirect to the feed page
       window.location.href = "./feed/index.html";
@@ -77,6 +86,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const name = document.querySelector("#reg-name").value;
     const email = document.querySelector("#reg-email").value;
     const password = document.querySelector("#reg-password").value;
+    const avatar = document.querySelector("#reg-avatar").value; 
+    const banner = document.querySelector("#reg-banner").value; 
 
     const isNameValid = validateName(name);
     const isEmailValid = validateEmail(email);
@@ -91,6 +102,8 @@ document.addEventListener("DOMContentLoaded", function () {
         name,
         email,
         password,
+        avatar,
+        banner,
       };
 
       const registerURL = `${API_BASE_URL}/api/v1/social/auth/register`;

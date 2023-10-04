@@ -99,3 +99,12 @@ body {
   max-height: 500px;
   object-fit: cover;
 }
+
+// PROFILE PAGE
+
+.user-avatar {
+  object-fit: cover;
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+}
