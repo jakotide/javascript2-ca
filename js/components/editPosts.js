@@ -5,7 +5,7 @@ async function updatePost(postData) {
     if (!postData.id) {
         throw new Error("Update requires a post ID")
     }
-    const token = localStorage.getItem("accesstoken");
+    const token = localStorage.getItem("accessToken");
     const updatePostUrl = `${postUrl}/${postData.id}`;
     const fetchOptions = {
         method: "PUT",
@@ -41,6 +41,5 @@ function loginFormListener() {
     })
     }
 }
-
 
  loginFormListener();
