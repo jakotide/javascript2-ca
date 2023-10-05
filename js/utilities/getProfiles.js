@@ -43,7 +43,7 @@ function renderProfilePosts(posts) {
         const profileEdit = document.createElement("a");
         profileEdit.classList.add("profile-post-link");
         profileEdit.innerText = "Edit"
-        profileEdit.href = `edit.html?=${post.id}`
+        profileEdit.href = `edit.html?id=${post.id}`
 
         profileCard.appendChild(profilePostTitle);
         profileCard.append(profilePostImage)
