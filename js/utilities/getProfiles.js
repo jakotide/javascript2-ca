@@ -17,7 +17,7 @@ async function getProfilePosts() {
 
 function renderProfilePosts(posts) {
     const profilePosts = document.querySelector(".profile-posts");
-    profilePosts.innerHTML = ""; // Clear previous posts
+    profilePosts.innerHTML = ""; 
 
     for (let i = 0; i < posts.length; i++) {
         const post = posts[i];
@@ -38,17 +38,22 @@ function renderProfilePosts(posts) {
         profilePostBody.innerText = post.body;
 
         const profileLinks = document.createElement("div");
-        profileLinks.classList.add("d-flex", "flex-column", "justify-content-center")
+        profileLinks.classList.add("d-flex", "flex-row", "justify-content-center")
 
         const profileEdit = document.createElement("a");
         profileEdit.classList.add("profile-post-link");
         profileEdit.innerText = "Edit"
         profileEdit.href = `edit.html?id=${post.id}`
 
+        const deleteBtn = document.createElement("a");
+        deleteBtn.classList.add("profile-post-link");
+        deleteBtn.innerText = "Delete";
+        deleteBtn.href = `delete.html?id=${post.id}`
+
         profileCard.appendChild(profilePostTitle);
         profileCard.append(profilePostImage)
         profileCard.appendChild(profilePostBody);
-        profileLinks.append(profileEdit)
+        profileLinks.append(profileEdit, deleteBtn)
         profileCard.append(profileLinks)
         profilePosts.appendChild(profileCard);
     }
