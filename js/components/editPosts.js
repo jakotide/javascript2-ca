@@ -21,6 +21,8 @@ async function updatePost(postData) {
     return await response.json();
 }
 
+
+
 function loginFormListener() {
     const form = document.querySelector("#edit-post");
 

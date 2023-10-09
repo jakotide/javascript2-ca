@@ -100,6 +100,18 @@ body {
   object-fit: cover;
 }
 
+.view-btn {
+  padding: 10px;
+  background-color: #337c69;
+  color: white;
+  text-decoration: none;
+  border-radius: 20px;
+
+  :hover {
+    background-color: red;
+  }
+}
+
 // PROFILE PAGE
 
 .user-avatar {
