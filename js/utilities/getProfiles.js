@@ -23,14 +23,14 @@ function renderProfilePosts(posts) {
         const post = posts[i];
 
         const profileCard = document.createElement("div");
-        profileCard.classList.add("card");
+        profileCard.classList.add("card", "profile-card");
 
         const profilePostTitle = document.createElement("h3");
         profilePostTitle.classList.add("post-title");
         profilePostTitle.innerText = post.title;
 
         const profilePostImage = document.createElement("img");
-        profilePostImage.classList.add("img-fluid");
+        profilePostImage.classList.add("img-fluid", "profile-post-image");
         profilePostImage.src = post.media;
 
         const profilePostBody = document.createElement("p");

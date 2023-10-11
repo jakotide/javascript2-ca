@@ -1,6 +1,9 @@
 
 
-// Function to handle the form submission
+/**
+ * Creates a new post when form is submitted.
+ * @param {*} event 
+ */
 async function handleFormSubmit(event) {
     event.preventDefault();
 
@@ -20,16 +23,17 @@ async function handleFormSubmit(event) {
             body: JSON.stringify(Object.fromEntries(formData)),
         };
 
-        // Send the POST request to create a new post
+
         const response = await fetch(apiUrl, fetchOptions);
         console.log(response)
 
         if (response.ok) {
             console.log("New post created successfully.");
-            // Handle success (e.g., redirect or display a success message)
+            alert("Success!")
+            
         } else {
             console.error("Failed to create a new post.");
-            // Handle error (e.g., display an error message)
+
         }
     } catch (error) {
         console.error(error);

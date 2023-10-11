@@ -1,105 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap"
-      rel="stylesheet"
-    />
-    <!-- FONT AWESOME -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- SASS-compiled CSS -->
-    <link rel="stylesheet" href="/dist/css/index.css" />
-    <!-- JS -->
-    
-    <script src="/js/utilities/consts.js" type="module"></script>
-    <script src="/js/utilities/fetchToken.js" type="module"></script>
-    <script src="/js/components/viewPost.js" type="module"></script>
-    <script src="/js/components/createPost.js" type="module"></script>
-    <script src="/js/utilities/getProfiles.js" type="module"></script>
-   
-    <!-- <script src="/js/components/filter.js" type="module"></script> -->
-    <title>Feed</title>
-  </head>
-  <body>
-    <header>
-      <nav class="navbar navbar-expand-lg bg-primary">
-        <div class="container">
-          <a class="navbar-brand logo-nav my-2" href="/index.html">SKJERA</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#nav"
-            aria-controls="nav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="nav">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#"
-                  >Profile</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/feed/index.html">Feed</a>
-              </li>
-            </ul>
-          </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap" rel="stylesheet" />
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- SASS-compiled CSS -->
+  <link rel="stylesheet" href="/dist/css/index.css" />
+  <!-- JS -->
+
+  <script src="/js/utilities/consts.js" type="module"></script>
+  <script src="/js/utilities/fetchToken.js" type="module"></script>
+  <script src="/js/components/viewPost.js" type="module"></script>
+  <script src="/js/components/createPost.js" type="module"></script>
+  <script src="/js/utilities/getProfiles.js" type="module"></script>
+
+  <!-- <script src="/js/components/filter.js" type="module"></script> -->
+  <title>Feed</title>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg bg-primary">
+      <div class="container">
+        <a class="navbar-brand logo-nav my-2" href="/index.html">SKJERA</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="nav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/feed/index.html">Feed</a>
+            </li>
+          </ul>
         </div>
-      </nav>
-      <!-- LEFT CONTAINER -->
-      <div class="container col-12 col-md-6 d-flex flex-row justify-content-center mt-5">
-        <div class="col-md-6 d-flex flex-column">
+      </div>
+    </nav>
+    <!-- LEFT CONTAINER -->
+    <div class="row m-4">
+      <div class="col-md-6 d-flex flex-column">
         <h1 class="mb-4 username"></h1>
         <img src="" alt="" class="user-avatar">
       </div>
-       
-              <!-- CREATE NEW POST -->
-      <form class="col-12 col-md-6 bg-primary create-form border-0 p-2" id="create-post-form">
+
+      <!-- CREATE NEW POST -->
+      <form class="col-md-6 bg-primary create-form border-0 p-2" id="create-post-form">
         <div class="mb-3">
-            <h3 class="pt-3">Create new post:</h3>
+          <h3 class="pt-3">Create new post:</h3>
         </div>
         <div class="mb-3">
-            <label for="title" class="form-label">Title</label>
-            <input name="title" class="form-control">
+          <label for="title" class="form-label">Title</label>
+          <input name="title" class="form-control">
         </div>
         <div class="mb-3">
-            <label for="media" class="form-label">Image URL</label>
-            <input type="text" name="media" class="form-control" id="media">
+          <label for="media" class="form-label">Image URL</label>
+          <input type="text" name="media" class="form-control" id="media">
         </div>
         <div class="mb-3">
-            <label for="body" class="form-label">Content</label>
-            <textarea type="text" name="body" class="form-control" rows="5"></textarea>
+          <label for="body" class="form-label">Content</label>
+          <textarea type="text" name="body" class="form-control" rows="5"></textarea>
         </div>
         <div class="mb-3">
-            <button type="submit" class="btn btn-dark">Create</button>
+          <button type="submit" class="btn btn-dark">Create</button>
         </div>
       </form>
     </div>
+
+      <!-- POSTS -->
     <div class="container">
       <div>Posts</div>
       <div class="profile-posts"></div>
     </div>
     </main>
     <!-- FOOTER -->
-    <footer
-      class="bg-primary py-3 d-flex justify-content-center align-items-center mt-4"
-      
-    >
+    <footer class="bg-primary py-3 d-flex justify-content-center align-items-center mt-4">
       <div class="text center p-2 text-light">@SKJERA 2023</div>
     </footer>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
       integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+      crossorigin="anonymous"></script>
+</body>
+
 </html>

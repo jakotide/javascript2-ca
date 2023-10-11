@@ -1,5 +1,11 @@
 import { postUrl } from "../utilities/consts.js";
 
+
+/**
+ * Updates the post data using PUT method.
+ * @param {*} postData 
+ * @returns 
+ */
 async function updatePost(postData) {
     console.log(postData)
     if (!postData.id) {
@@ -37,6 +43,7 @@ function loginFormListener() {
             const formData = new FormData(form);
             const post = Object.fromEntries(formData.entries());
             post.id = id;
+            alert("Success!")
 
             updatePost(post);
     

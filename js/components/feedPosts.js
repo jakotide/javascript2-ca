@@ -45,9 +45,6 @@ function createFeedPostElement(post) {
     const feedReactionRow = document.createElement("div");
     feedReactionRow.classList.add("d-flex", "flex-row", "justify-content-between", "align-content-center", "mt-4");
 
-    const feedLikeBtn = document.createElement("i");
-    feedLikeBtn.classList.add("fa-solid", "fa-thumbs-up", "fa-xl", "feed-like-btn");
-
     const viewBtn = document.createElement("a");
     viewBtn.classList.add("view-btn")
     viewBtn.textContent = "View Post";
@@ -67,7 +64,7 @@ function createFeedPostElement(post) {
     feedDate.textContent = formattedDate;
 
     feedPost.append(feedTitle, feedMedia, feedContent, feedReactionRow);
-    feedReactionRow.append(feedLikeBtn, viewBtn, feedDate);
+    feedReactionRow.append(viewBtn, feedDate);
 
     return feedPost;
 }

@@ -1,7 +1,13 @@
 import { postUrl } from "../utilities/consts.js";
-// const deleteBtn = document.querySelector("#delete-btn");
 
+
+/**
+ * Deletes post based on ID.
+ * @param {*} postId 
+ * @returns 
+ */
 async function deletePost(postId) {
+    console.log(postId)
     const token = localStorage.getItem("accessToken");
     const deletePostUrl = `${postUrl}/${postId}`;
     const fetchOptions = {
