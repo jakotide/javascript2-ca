@@ -14,12 +14,14 @@ async function displaySinglePost() {
       return;
     }
 
-    const apiUrl = `https://api.noroff.dev/api/v1/social/posts/${postId}`;
+    const apiUrl = `https://api.noroff.dev/api/v1/social/posts/${postId}?_author=true&_reactions=true`;
 
     const json = await fetchToken(apiUrl);
+    console.log(json)
 
     if (json) {
       renderSinglePost(json);
+      
     } else {
       console.error("Failed to fetch the post data.");
     }
@@ -46,19 +48,43 @@ function renderSinglePost(post) {
     "border-0"
   );
 
+  const authorBanner = document.createElement("img");
+  authorBanner.src = post.author.banner;
+  authorBanner.classList.add("author-banner")
+
+  const viewAuthor = document.createElement("div");
+  viewAuthor.innerText = `${post.author.name} posted:`;
+  viewAuthor.classList.add("mb-3")
+
   const viewTitle = document.createElement("h2");
   viewTitle.classList.add("view-title");
   viewTitle.textContent = post.title;
 
   const viewImg = document.createElement("img");
-  viewImg.classList.add("view-img", "img-fluid");
+  viewImg.classList.add("view-img", "img-fluid", "mb-3");
   viewImg.src = post.media;
 
   const viewContent = document.createElement("p");
   viewContent.classList.add("view-content");
   viewContent.textContent = post.body;
 
-  viewPost.append(viewTitle, viewImg, viewContent);
+  const reactionRow = document.createElement("div");
+  reactionRow.classList.add("d-flex", "flex-row")
+
+    post.reactions.forEach((reaction) => {
+        const reactionEmoji = document.createElement("div");
+        reactionEmoji.innerText = reaction.symbol;
+        reactionRow.appendChild(reactionEmoji);
+    })
+
+    post.reactions.forEach((reaction) => {
+        const reactionCount = document.createElement("div");
+        reactionCount.innerText = reaction.count;
+        reactionRow.appendChild(reactionCount);
+    })
+  
+ 
+  viewPost.append(authorBanner, viewAuthor, viewTitle, viewImg, viewContent, reactionRow);
 }
 
 displaySinglePost();
