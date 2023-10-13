@@ -1,10 +1,13 @@
 import { fetchToken } from "../utilities/fetchToken.js";
 import { postUrl } from "../utilities/consts.js";
+const feedPostsUrl = `${postUrl}/?_author=true&_reactions=true`;
+
+
 
 // Function to display feed posts
 async function displayFeedPosts() {
   try {
-    const json = await fetchToken(postUrl);
+    const json = await fetchToken(feedPostsUrl);
     renderFeedPosts(json);
     console.log(json);
   } catch (error) {
@@ -17,7 +20,7 @@ function renderFeedPosts(json) {
   const feedPostDiv = document.querySelector(".feed-posts");
   feedPostDiv.innerHTML = "";
 
-  for (let i = 0; i < 20 && i < json.length; i++) {
+  for (let i = 0; i < 30 && i < json.length; i++) {
     const post = json[i];
     const feedPost = createFeedPostElement(post);
     feedPostDiv.append(feedPost);
@@ -40,12 +43,16 @@ function createFeedPostElement(post) {
   );
   feedPost.id = post.id;
 
+  const feedAuthor = document.createElement("div");
+  feedAuthor.innerText = `${post.author.name} posted:`;
+  feedAuthor.classList.add("text-primary", "mb-2")
+
   const feedTitle = document.createElement("h2");
   feedTitle.classList.add("mb-3");
   feedTitle.textContent = post.title;
 
   const feedMedia = document.createElement("img");
-  feedMedia.classList.add("img-fluid", "feed-media");
+  feedMedia.classList.add("img-fluid", "feed-media", "mb-3");
   feedMedia.src = post.media;
 
   const feedContent = document.createElement("p");
@@ -78,7 +85,7 @@ function createFeedPostElement(post) {
 
   feedDate.textContent = formattedDate;
 
-  feedPost.append(feedTitle, feedMedia, feedContent, feedReactionRow);
+  feedPost.append(feedAuthor, feedTitle, feedMedia, feedContent, feedReactionRow);
   feedReactionRow.append(viewBtn, feedDate);
 
   return feedPost;

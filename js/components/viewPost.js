@@ -14,13 +14,14 @@ async function displaySinglePost() {
       return;
     }
 
-    const apiUrl = `https://api.noroff.dev/api/v1/social/posts/${postId}?_author=true&_reactions=true`;
+    const apiUrl = `https://api.noroff.dev/api/v1/social/posts/${postId}?_author=true&_reactions=true&_comments=true`;
 
     const json = await fetchToken(apiUrl);
     console.log(json)
 
     if (json) {
       renderSinglePost(json);
+      renderCommentSection(json)
       
     } else {
       console.error("Failed to fetch the post data.");
@@ -86,5 +87,25 @@ function renderSinglePost(post) {
  
   viewPost.append(authorBanner, viewAuthor, viewTitle, viewImg, viewContent, reactionRow);
 }
+
+function renderCommentSection(post) {
+  const commentSection = document.querySelector(".comment-section");
+
+  if (commentSection) {
+      post.comments.forEach((comment) => {
+          const commentAuthor = document.createElement("div");
+          commentAuthor.innerText = comment.author.name;
+          commentAuthor.classList.add("text-primary", "mb-1");
+
+          const commentElement = document.createElement("div");
+          commentElement.classList.add("comment-element")
+          commentElement.innerText = comment.body; 
+
+          commentSection.append(commentAuthor, commentElement);
+      });
+  }
+}
+
+
 
 displaySinglePost();
