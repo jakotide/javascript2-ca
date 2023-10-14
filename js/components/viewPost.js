@@ -74,15 +74,11 @@ function renderSinglePost(post) {
 
     post.reactions.forEach((reaction) => {
         const reactionEmoji = document.createElement("div");
-        reactionEmoji.innerText = reaction.symbol;
+        reactionEmoji.innerText = `${reaction.symbol}${reaction.count}` + ` `;
         reactionRow.appendChild(reactionEmoji);
     })
 
-    post.reactions.forEach((reaction) => {
-        const reactionCount = document.createElement("div");
-        reactionCount.innerText = reaction.count;
-        reactionRow.appendChild(reactionCount);
-    })
+
   
  
   viewPost.append(authorBanner, viewAuthor, viewTitle, viewImg, viewContent, reactionRow);
