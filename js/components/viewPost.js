@@ -74,7 +74,7 @@ function renderSinglePost(post) {
 
     post.reactions.forEach((reaction) => {
         const reactionEmoji = document.createElement("div");
-        reactionEmoji.innerText = `${reaction.symbol}${reaction.count}` + ` `;
+        reactionEmoji.innerText = `${reaction.symbol}${reaction.count}`;
         reactionRow.appendChild(reactionEmoji);
     })
 
