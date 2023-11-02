@@ -13,16 +13,33 @@ body {
 }
 
 .login-btn {
-  background-color: $dark-green;
-  color: $white;
-
-  &:hover {
-    background-color: $light-green;
+  color: white;
+  :hover {
+    color: red;
   }
 }
 
-.forgot {
+.new-user {
   color: white;
+  cursor: pointer;
+}
+
+// .reg-form {
+//   // display: none;
+//   position: absolute;
+//   left: -1000px;
+// }
+
+.reg-success {
+  display: none;
+  color: white;
+  padding-top: 10px;
+  font-size: 1.5rem;
+}
+
+.regi-error {
+  color: rgb(233, 111, 111);
+  display: none;
 }
 
 // PROFILE PAGE
@@ -55,10 +72,30 @@ body {
   @include boxShadow();
 }
 
+.profile-card {
+  @include flexCenter(column);
+}
+
+.profile-post-link {
+  padding: 10px;
+  background-color: #337c69;
+  width: 100px;
+  margin: 0 0 20px 10px;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  border-radius: 20px;
+}
+
+.profile-post-image {
+  max-height: 700px;
+  object-fit: cover;
+  max-width: 700px;
+}
+
 // FEED PAGE
 
 .card-feed {
-  width: 240px;
   @include boxShadow();
 }
 
@@ -66,4 +103,54 @@ body {
   color: $white;
   @include boxShadow();
   height: 550px;
+  background-color: red;
+}
+
+
+.feed-like-btn {
+  height: 24px;
+  margin-top: 10px;
+}
+
+.feed-date {
+  margin: 0;
+}
+
+.feed-media {
+  max-height: 500px;
+  object-fit: cover;
+}
+
+.view-btn {
+  padding: 10px;
+  background-color: #337c69;
+  color: white;
+  text-decoration: none;
+  border-radius: 20px;
+
+  :hover {
+    background-color: red;
+  }
+}
+
+.author-banner {
+  border-radius: 100%;
+  max-width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.comment-element {
+  padding: 1rem;
+  margin-bottom: 5px;
+  border: 1px solid rgb(34, 114, 74);
+}
+
+// PROFILE PAGE
+
+.user-avatar {
+  object-fit: cover;
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
 }

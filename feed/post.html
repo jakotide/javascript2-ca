@@ -11,19 +11,21 @@
       rel="stylesheet"
     />
     <!-- FONT AWESOME -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <!-- SASS-compiled CSS -->
     <link rel="stylesheet" href="/dist/css/index.css" />
     <!-- JS -->
-    
     <script src="/js/utilities/consts.js" type="module"></script>
     <script src="/js/utilities/fetchToken.js" type="module"></script>
-     <script src="/js/components/viewPost.js" type="module"></script>
-    <script src="/js/components/feedPosts.js" type="module"></script>
-    <script src="/js/components/search.js" type="module"></script>
-   
-    <!-- <script src="/js/components/filter.js" type="module"></script> -->
-    <title>Feed</title>
+    <script src="/js/components/viewPost.js" type="module"></script>
+
+    <title>SKJERA | Post</title>
   </head>
   <body>
     <header>
@@ -39,64 +41,37 @@
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon c-pr"></span>
           </button>
           <div class="collapse navbar-collapse" id="nav">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/profile/index.html"
+                <a
+                  class="nav-link"
+                  aria-current="page"
+                  href="/profile/index.html"
                   >Profile</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="#">Feed</a>
+                <a class="nav-link" href="index.html">Feed</a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
-      <div class="container">
-        <h1 class="mt-5 mb-4">THE FEED</h1>
-        <!-- Search / Filter -->
-        <div class="row">
-          <div class="col-md-6">
-            <div class="input-group">
-              <input
-                id="searchInput"
-                class="form-control mb-3"
-                type="search"
-                placeholder="Search"
-              />
-              <span class="input-group-append">
-                <button class="btn btn-outline-secondary" id="searchButton" type="button">
-                  <i class="fa fa-search"></i>
-                </button>
-              </span>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <select class="form-select" aria-label="Sort by" name="" id="feed-filter">
-              <option selected>Sort by</option>
-              <option value="latest">Latest</option>
-              <option value="oldest">Oldest</option>
-            </select>
-          </div>
-        </div>
     </header>
     <main class="d-flex justify-content-center">
-      <div class="container">
-        <div class="row d-flex justify-content-center">
-          <!-- POSTS -->
-        <div class="feed-posts col-12 col-md-8">
-        </div>
-        
-        </div>
-    </div>
+      <div class="col-12 col-md-5 d-flex flex-column mt-5">
+       
+        <div class="view-post"></div>
+        <h2>Comments:</h2>
+        <div class="comment-section"></div>
+      </div>
     </main>
     <!-- FOOTER -->
     <footer
       class="bg-primary py-3 d-flex justify-content-center align-items-center mt-4"
-      
     >
       <div class="text center p-2 text-light">@SKJERA 2023</div>
     </footer>

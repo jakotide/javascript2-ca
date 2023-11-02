@@ -10,49 +10,113 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap"
       rel="stylesheet"
     />
+    <!-- JS -->
+    <script src="/js/utilities/validate.js" type="module"></script>
+    <script src="/js/utilities/consts.js" type="module"></script>
+    <script src="/js/main.js" defer></script>
+    <script src="/js/components/register.js" type="module"></script>
     <!-- SASS-compiled CSS -->
     <link rel="stylesheet" href="dist/css/index.css" />
+    <link rel="stylesheet" href="src/scss/index.scss" />
     <title>Log in</title>
   </head>
-  <body>
-    <div
-      class="login-box bg-primary container min-vh-100 d-flex align-items-center justify-content-center"
-    >
-      <form action="/profile/index.html">
-        <h1 class="text-center mb-5 logo">SKJERA</h1>
-        <div class="text-center mb-2">Login</div>
-        <div class="mb-3">
-          <label for="username" class="form-label">Username</label>
+  <body class="bg-primary">
+    <main>
+      <div
+        class="login-box bg-primary container min-vh-100 d-flex align-items-center justify-content-center flex-column"
+      >
+        <form id="login-form">
+          <h1 class="text-center mb-5 logo">SKJERA</h1>
+          <div class="text-center mb-2 new-user">Login</div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input
+              type="text"
+              class="form-control"
+              id="email-login"
+              name="email"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password-login"
+              name="password"
+              minlength="8"
+              required
+            />
+          </div>
+
+          <div class="text-center">
+            <button type="submit" class="btn login-btn bg-secondary">
+              Login
+            </button>
+          </div>
+        </form>
+        <div class="mt-5 new-user">New user? Register here</div>
+        <form
+          action=""
+          class="d-flex flex-column reg-form display-n"
+          id="registration-form"
+          method="post"
+        >
+          <label for="name" class="form-label">Username</label>
           <input
             type="text"
-            class="form-control"
-            id="username"
-            name="username"
+            name="name"
+            id="reg-name"
+            class="form-control mb-3"
             required
           />
-        </div>
-        <div class="mb-3">
-          <label for="password" class="form-label">Password</label>
+          <div class="regi-error" id="name-error">
+            Username can not contain symbols apart from underscore
+          </div>
+          <label for="email">Email</label>
+          <input
+            type="text"
+            name="email"
+            id="reg-email"
+            class="form-control mb-3"
+            required
+          />
+          <div class="regi-error" id="email-error">
+            Email must be a valid stud.noroff.no or noroff.no email address
+          </div>
+          <label for="password">Password</label>
           <input
             type="password"
-            class="form-control"
-            id="password"
+            id="reg-password"
             name="password"
-            minlength="8"
+            class="form-control mb-3"
             required
+            minlength="8"
           />
-        </div>
-        <div class="mb-3 text-center">
-          <small
-            ><a class="forgot" href="#">Forgot password? Click here</a></small
-          >
-        </div>
-        <div class="text-center">
+          <div class="regi-error" id="password-error">
+            Must be 8 characters long
+          </div>
+          <label for="avatar">Avatar</label>
+          <input
+            type="text"
+            name="avatar"
+            class="form-control mb-3"
+            id="reg-avatar"
+          />
+          <label for="banner">Banner</label>
+          <input
+            type="text"
+            name="banner"
+            class="form-control mb-3"
+            id="reg-banner"
+          />
           <button type="submit" class="btn login-btn bg-secondary">
-            Login
+            Sign Up
           </button>
-        </div>
-      </form>
-    </div>
+          <div class="reg-success">Success!</div>
+        </form>
+      </div>
+    </main>
   </body>
 </html>
